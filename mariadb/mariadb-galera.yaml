@@ -9,9 +9,9 @@ spec:
   rootPasswordSecretKeyRef:
     name: mariadb-root
     key: password
-  replicas: 1
+  replicas: 3
   galera:
-    enabled: false
+    enabled: true
   podSecurityContext:
     appArmorProfile:
       type: Unconfined
