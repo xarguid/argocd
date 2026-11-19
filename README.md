@@ -22,7 +22,6 @@ persistentvolumeclaim/storage-mariadb-galera-2   Bound    pvc-deb81a90-112d-41ef
 
 heiki@heiki-MacBookPro11-3:~/Documents/argocd$ kubectl exec mariadb-galera-0 -- mariadb -u root -p"***" -e "CREATE DATABASE IF NOT EXISTS test_persist; CREATE TABLE IF NOT EXISTS test_persist.t (id INT PRIMARY KEY, note VARCHAR(64)); INSERT IGNORE INTO test_persist.t VALUES (1, 'ok');"
 Defaulted container "mariadb" out of: mariadb, agent, init (init)
-heiki@heiki-MacBookPro11-3:~/Documents/argocd$ kubectl get events --field-^Clector involvedObject.name=mariadb-galera-0
 heiki@heiki-MacBookPro11-3:~/Documents/argocd$ kubectl exec mariadb-galera-0 -- mariadb -u root -p"***" -e "SELECT * FROM test_persist.t;"
 Defaulted container "mariadb" out of: mariadb, agent, init (init)
 id	note
