@@ -21,6 +21,7 @@ spec:
     innodb_autoinc_lock_mode=2
     innodb_buffer_pool_size=256M
     max_connections=100
+    innodb_use_native_aio=0
   resources:
     requests:
       cpu: 100m
