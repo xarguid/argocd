@@ -7,9 +7,9 @@ spec:
   rootPasswordSecretKeyRef:
     name: mariadb-root
     key: password
-  replicas: 3
+  replicas: 1
   galera:
-    enabled: true
+    enabled: false
   storage:
     size: 5Gi
     storageClassName: local-path
