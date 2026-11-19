@@ -10,7 +10,7 @@ spec:
   galera:
     enabled: true
   storage:
-    size: 10Gi
+    size: 5Gi
     storageClassName: local-path
   myCnf: |
     [mariadb]
@@ -18,12 +18,12 @@ spec:
     default_storage_engine=InnoDB
     binlog_format=row
     innodb_autoinc_lock_mode=2
-    innodb_buffer_pool_size=768M
-    max_connections=150
+    innodb_buffer_pool_size=256M
+    max_connections=100
   resources:
     requests:
-      cpu: 250m
-      memory: 1Gi
+      cpu: 100m
+      memory: 512Mi
     limits:
       cpu: "1"
-      memory: 2Gi
+      memory: 1Gi
