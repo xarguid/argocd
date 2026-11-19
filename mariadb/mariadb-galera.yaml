@@ -2,6 +2,8 @@ apiVersion: k8s.mariadb.com/v1alpha1
 kind: MariaDB
 metadata:
   name: mariadb-galera
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/mariadb: unconfined
 spec:
   image: mariadb:11.4
   rootPasswordSecretKeyRef:
@@ -10,8 +12,20 @@ spec:
   replicas: 1
   galera:
     enabled: false
+  podSecurityContext:
+    appArmorProfile:
+      type: Unconfined
   storage:
-    ephemeral: true
+    ephemeral: false
+    size: 5Gi
+    storageClassName: local-path
+    volumeClaimTemplate:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 5Gi
+      storageClassName: local-path
   myCnf: |
     [mariadb]
     bind-address=*
