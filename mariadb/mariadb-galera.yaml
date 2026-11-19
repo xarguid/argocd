@@ -12,7 +12,7 @@ spec:
     enabled: false
   storage:
     size: 5Gi
-    storageClassName: local-path
+    ephemeral: true
   myCnf: |
     [mariadb]
     bind-address=*
