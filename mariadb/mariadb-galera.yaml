@@ -3,6 +3,7 @@ kind: MariaDB
 metadata:
   name: mariadb-galera
 spec:
+  image: mariadb:11.4
   rootPasswordSecretKeyRef:
     name: mariadb-root
     key: password
